@@ -26,11 +26,11 @@ typedef struct aluno{
 
 void printarDadosTela(aluno a){
 
-    printf("Nome: %s\n", a.nome);
-	printf("Idade: %s\n", a.idade);
-	printf("Matricula: %s\n", a.matricula);
-	printf("Curso: %s\n", a.curso);
-	printf("Turno: %s\n", a.turno);
+    printf("Nome: %s", a.nome);
+	printf("Idade: %s", a.idade);
+	printf("Matricula: %s", a.matricula);
+	printf("Curso: %s", a.curso);
+	printf("Turno: %s", a.turno);
 	printf("\n------------------------------------------\n");
 }
 
@@ -42,11 +42,11 @@ void vizualiza(){
 
     int cont = 0;
 
-	while(fscanf(arq, "%s;", a.nome) != EOF){
-		fscanf(arq, "%s;", a.idade);
-        fscanf(arq, "%s;", a.matricula);
-        fscanf(arq, "%s;", a.curso);
-        fscanf(arq, "%s;", a.turno);
+	while(fgets(a.nome, 200, arq) != NULL){
+		fgets(a.idade, 200, arq);
+        fgets(a.matricula, 200, arq);
+        fgets(a.curso, 200, arq);
+        fgets(a.turno, 200, arq);
         printarDadosTela(a);
 	}
 
@@ -68,7 +68,7 @@ void adiciona(){
 	gets(a.curso);
 	printf("Digite o turno do aluno: \n:>");
 	gets(a.turno);
-	fprintf(arq, "%s; %s; %s; %s; %s; \n", a.nome, a.idade, a.matricula, a.curso, a.turno);
+	fprintf(arq, "%s\n%s\n%s\n%s\n%s\n", a.nome, a.idade, a.matricula, a.curso, a.turno);
 	fclose(arq);
 }
 
@@ -95,12 +95,12 @@ void adiciona(){
         }
         encontrado = 0; 
 
-        strcat(nomeBusca, ";");
-        while(fscanf(arq, "%s;", a.nome) != EOF){
-            fscanf(arq, "%s;", a.idade);
-            fscanf(arq, "%s;", a.matricula);
-            fscanf(arq, "%s;", a.curso);
-            fscanf(arq, "%s;", a.turno);
+        strcat(nomeBusca, "\n");
+        while(fgets(a.nome, 200, arq) != NULL){
+            fgets(a.idade, 200, arq);
+            fgets(a.matricula, 200, arq);
+            fgets(a.curso, 200, arq);
+            fgets(a.turno, 200, arq);
 
             if (strcmp(a.nome, nomeBusca) == 0) {
                 printf("Digite o novo nome: \n:>");
@@ -130,15 +130,15 @@ void adiciona(){
         rewind(arq); 
     } while (encontrado == 0 && strcmp(nomeBusca, "sair") != 0);
 
-    while(fscanf(arq, "%s;", a.nome) != EOF){
-		fscanf(arq, "%s;", a.idade);
-        fscanf(arq, "%s;", a.matricula);
-        fscanf(arq, "%s;", a.curso);
-        fscanf(arq, "%s;", a.turno);
+    while(fgets(a.nome, 200, arq) != NULL){
+		fgets(a.idade, 200, arq);
+        fgets(a.matricula, 200, arq);
+        fgets(a.curso, 200, arq);
+        fgets(a.turno, 200, arq);
         if (strcmp(a.nome, nomeBusca) == 0) {
-            fprintf(arqtemp, "%s; %s; %s; %s; %s; \n", b.nome, b.idade, b.matricula, b.curso, b.turno);
+            fprintf(arqtemp, "%s\n%s\n%s\n%s\n%s\n", b.nome, b.idade, b.matricula, b.curso, b.turno);
         } else {
-            fprintf(arqtemp, "%s %s %s %s %s \n", a.nome, a.idade, a.matricula, a.curso, a.turno);
+            fprintf(arqtemp, "%s\n%s\n%s\n%s\n%s\n", a.nome, a.idade, a.matricula, a.curso, a.turno);
         }
     }
 
@@ -168,13 +168,13 @@ void exclui() {
     fgets(nomeBusca, sizeof(nomeBusca), stdin);
     nomeBusca[strcspn(nomeBusca, "\n")] = '\0'; 
 
-    strcat(nomeBusca, ";");
+    strcat(nomeBusca, "\n");
 
-    while(fscanf(arq, "%s;", a.nome) != EOF){
-        fscanf(arq, "%s;", a.idade);
-        fscanf(arq, "%s;", a.matricula);
-        fscanf(arq, "%s;", a.curso);
-        fscanf(arq, "%s;", a.turno);
+    while(fgets(a.nome, 200, arq) != NULL){
+		fgets(a.idade, 200, arq);
+        fgets(a.matricula, 200, arq);
+        fgets(a.curso, 200, arq);
+        fgets(a.turno, 200, arq);
             
         if (strcmp(a.nome, nomeBusca) == 0) {
             printf("A nome é: %s\n", a.nome);
