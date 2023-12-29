@@ -41,7 +41,6 @@ void vizualiza(){
 	rewind(arq); 
 
     int cont = 0;
-    char *texto = (char*)(malloc(sizeof(char)*200));
 
 	while(fscanf(arq, "%s;", a.nome) != EOF){
 		fscanf(arq, "%s;", a.idade);
