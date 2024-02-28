@@ -203,12 +203,12 @@ void exclui() {
         rename(arquivoTemp, nomeArquivo);
         printf("Registro excluÃ­do com sucesso!\n");
     } else {
-        printf("Nome nao encontrado e nenhum registro foi excluido.\n");
+        printf("Nome nao encontrado e nenhum registro foi excluído.\n");
     }
 }
 int main(){
 	int entrada;
-	setlocale(LC_ALL,"Portuguese");
+	setlocale(LC_ALL,"portuguese");
 	FILE *arq;
 	arq = fopen(nomeArquivo,"r");
 	if(arq == NULL){
@@ -218,7 +218,7 @@ int main(){
     do{
     	printf("\n------------------------------------------\n");
         printf("\tAlterador de registro\n");
-        printf("\tEscolha uma opÃ§Ã£o:");
+        printf("\tEscolha uma opção:");
         printf("\n1. Adicionar registro");
         printf("\n2. Visualizar registro");
         printf("\n3. Modificar registro");
